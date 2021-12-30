@@ -1,3 +1,5 @@
+import { random } from "lodash"
+
 interface Board {
 
 }
@@ -18,7 +20,14 @@ interface Randoms {
 }
 
 export function simulate(state: State, randoms: Randoms): SimulationResult {
+    console.log(randoms.nextFrontRowAttack())
     return SimulationResult.TIE
 }
 
-console.log(simulate({ board1: {}, board2: {} }))
+const realRandoms: Randoms = {
+    nextFrontRowAttack() {
+        return random(4);
+    }
+}
+
+console.log(simulate({ board1: {}, board2: {} }, realRandoms))
