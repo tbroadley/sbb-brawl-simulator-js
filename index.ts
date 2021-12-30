@@ -13,7 +13,11 @@ enum SimulationResult {
     TIE = 'TIE',
 }
 
-export function simulate(state: State): SimulationResult {
+interface Randoms {
+    nextFrontRowAttack: () => number
+}
+
+export function simulate(state: State, randoms: Randoms): SimulationResult {
     return SimulationResult.TIE
 }
 
